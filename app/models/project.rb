@@ -2,6 +2,7 @@ class Project < ApplicationRecord
   belongs_to :user    #owner or member
   has_many :memberships, dependent: :destroy
 	has_many :members, through: :memberships, source: :user
+	has_many :comments, as: :commentable
 
   has_many :tasks, dependent: :destroy
 	validates :name, presence: true, length: { minimum: 3 }
